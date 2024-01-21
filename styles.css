@@ -1,0 +1,170 @@
+* {
+    /* border: 1px solid black; */
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0%;
+    padding: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+    /*
+        Styling for centering content on the viewport,
+        creating a responsive layout using flexbox,
+        and setting a default font family for the document.
+        
+        Note: No specific background image is used to respect copyright.
+    */
+}
+
+#background {
+    width: 85%;
+    height: 85%;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(47, 88%, 63%);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /*Shadow*/
+}
+
+#main-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 10px 10px;
+    background-color: hsl(0, 0%, 100%);
+}
+
+#head-img {
+    margin-bottom: 20px;
+}
+
+#head-img > img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Begin div for date of publication */
+
+#published {
+    display: flex;
+    align-self: baseline; /*Because the #main-card is set to flex-column-center, this div should have been centered vertically/horizontally as well, but we set this to flex so we can align itself to the baseline (start of flex direction of the #main-card)*/
+    flex-direction: column; /* This columnizes the <p>s inside */
+    padding: 0px; /*Removes the padding so inside divs expand*/
+    margin: 0px 0px 15px 0px;
+}
+
+#published p {
+    margin:  0px 0px 10px 0px; /*Adds margin bottom only*/
+    font-size: 14px;
+    color: hsl(0, 0%, 7%);
+    
+}
+
+#published > .p1 /*"Learning"*/{
+    display: flex;
+    justify-content: center; /*Aligns the text directly to the center of the padding*/
+    width: 80px;
+    padding: 5px 15px;
+    background-color: hsl(47, 88%, 63%);
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+#published > .p2 {
+    color: hsl(0, 0%, 15%);
+}
+
+
+/* Begin Content preview */
+
+#content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+#content * {
+    margin: 0px;
+}
+
+#content h3 {
+    margin-bottom: 20px;
+    font-size: 23px;
+    color: hsl(0, 0%, 7%);
+}
+
+#content h3:hover {
+    /*Could be an <a>, but the purpose of this we'll just use this for now*/
+    color: hsl(47, 88%, 63%); /* Change color on hover */
+    cursor: pointer; /* Change cursor to hand on hover */
+}
+
+#content p {
+    line-height: 1.5; /*This adjusts the spacing of each lines */
+    color: hsl(0, 0%, 50%);
+}
+
+/*Begin Author ID*/
+
+#author {
+    display: flex; /*Auto applies row*/
+    align-self: baseline; /*Just like what we did to #published, overriding the parent container*/
+    padding: 0px;
+    margin: 0px;
+    align-items: center; /*This is not the same with align-self, this affects the children*/
+}
+
+#author * {
+    padding: 0px;
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+#author img {
+    width: 40px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+/*Begin media query for mobile responsiveness */
+
+@media only screen and (max-width: 600px) {
+    #background {
+        height: 100%;
+        width: 100%;
+    }
+
+    #main-card {
+        width: 80%; /* Adjusted width for better responsiveness */
+        max-width: 100%; /* Ensure it doesn't exceed 100% of the viewport width */
+    }
+
+    #head-img > img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    #content h3 {
+        font-size: 1.2em;
+        white-space: nowrap; /* Prevents text from wrapping */
+    }
+
+    #published > .p1 {
+        width: 100%; /* Adjusted width for better responsiveness */
+        padding: 5px 0px; /* Adjusted padding for better responsiveness */
+    }
+}
